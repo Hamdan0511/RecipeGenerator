@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact Us - Recipe Generator</title>
+    <style>
+        :root {
+            --background-color: #fafafa;
+            --surface-color: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555555;
+            --accent-color: #222222;
+            --accent-hover: #666666;
+            --border-color: #e0e0e0;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --font-family: 'Poppins', Arial, sans-serif;
+            --border-radius: 12px;
+            --transition-speed: 0.3s;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: var(--font-family);
+            background-color: var(--background-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .container {
+            max-width: 1140px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 40px 24px;
+        }
+
+        /* Navigation styles */
+        nav.nav-menu {
+            background: var(--surface-color);
+            padding: 18px 0;
+            margin-bottom: 48px;
+            box-shadow: 0 2px 10px var(--shadow-color);
+            border-radius: var(--border-radius);
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+        }
+        nav.nav-menu a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+        }
+        nav.nav-menu a.active,
+        nav.nav-menu a:hover,
+        nav.nav-menu a:focus {
+            background-color: var(--accent-color);
+            color: var(--surface-color);
+            outline: none;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 48px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        header h1 {
+            font-weight: 700;
+            font-size: 2.8rem;
+            color: var(--accent-color);
+            letter-spacing: 0.05em;
+        }
+        header p {
+            font-weight: 400;
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+        }
+
+        /* Form styles */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--surface-color);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 8px 24px var(--shadow-color);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--accent-color);
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1.5px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color var(--transition-speed);
+            background-color: var(--background-color);
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 8px var(--shadow-color);
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        button[type="submit"] {
+            background-color: var(--accent-color);
+            color: var(--surface-color);
+            border: none;
+            padding: 14px 32px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color var(--transition-speed);
+            width: 100%;
+        }
+
+        button[type="submit"]:hover,
+        button[type="submit"]:focus {
+            background-color: var(--accent-hover);
+            outline: none;
+        }
+
+        .success-message,
+        .error-message {
+            display: none;
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 24px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .success-message {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .error-message {
+            background-color: #ffebee;
+            color: #c62828;
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            .contact-form {
+                padding: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            header p {
+                font-size: 1rem;
+            }
+            nav.nav-menu {
+                gap: 16px;
+                padding: 12px 0;
+            }
+            nav.nav-menu a {
+                font-size: 0.9rem;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <nav class="nav-menu" aria-label="Primary navigation">
+            <a href="expo.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="#" class="active" aria-current="page">Contact</a>
+            <a href="login.html">Login</a>
+        </nav>
+
+        <header>
+            <h1>Contact Us</h1>
+            <p>Have questions or feedback? We'd love to hear from you!</p>
+        </header>
+
+        <form class="contact-form" id="contactForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required />
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required />
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+
+            <button type="submit">Send Message</button>
+        </form>
+
+        <div id="successMessage" class="success-message" role="alert">
+            Thank you for your message! We'll get back to you soon.
+        </div>
+
+        <div id="errorMessage" class="error-message" role="alert">
+            Sorry, there was an error sending your message. Please try again.
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Here you would typically send the form data to your server
+            // For now, we'll just show the success message
+            document.getElementById('successMessage').style.display = 'block';
+            document.getElementById('errorMessage').style.display = 'none';
+            
+            // Reset the form
+            this.reset();
+        });
+    </script>
+</body>
+</html> 

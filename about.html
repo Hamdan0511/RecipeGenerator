@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About Us - Recipe Generator</title>
+    <style>
+        :root {
+            --background-color: #fafafa;
+            --surface-color: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555555;
+            --accent-color: #222222;
+            --accent-hover: #666666;
+            --border-color: #e0e0e0;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --font-family: 'Poppins', Arial, sans-serif;
+            --border-radius: 12px;
+            --transition-speed: 0.3s;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: var(--font-family);
+            background-color: var(--background-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+            border-radius: var(--border-radius);
+        }
+
+        .container {
+            max-width: 1140px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 40px 24px;
+        }
+
+        /* Navigation styles */
+        nav.nav-menu {
+            background: var(--surface-color);
+            padding: 18px 0;
+            margin-bottom: 48px;
+            box-shadow: 0 2px 10px var(--shadow-color);
+            border-radius: var(--border-radius);
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+        }
+        nav.nav-menu a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+        }
+        nav.nav-menu a.active,
+        nav.nav-menu a:hover,
+        nav.nav-menu a:focus {
+            background-color: var(--accent-color);
+            color: var(--surface-color);
+            outline: none;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 48px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        header h1 {
+            font-weight: 700;
+            font-size: 2.8rem;
+            color: var(--accent-color);
+            letter-spacing: 0.05em;
+        }
+        header p {
+            font-weight: 400;
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+        }
+
+        main {
+            max-width: 850px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        main h2 {
+            font-weight: 700;
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 16px;
+            letter-spacing: 0.03em;
+        }
+
+        main p {
+            margin-bottom: 28px;
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            header p {
+                font-size: 1rem;
+            }
+            nav.nav-menu {
+                gap: 16px;
+                padding: 12px 0;
+            }
+            nav.nav-menu a {
+                font-size: 0.9rem;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <nav class="nav-menu" aria-label="Primary navigation">
+            <a href="expo.html">Home</a>
+            <a href="#" class="active" aria-current="page">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html">Login</a>
+        </nav>
+
+        <header>
+            <h1>About Recipe Generator</h1>
+            <p>Learn more about the purpose and mission behind our dynamic recipe platform.</p>
+        </header>
+
+        <main role="main">
+            <h2>Our Mission</h2>
+            <p>
+                Our goal is to help you discover delicious and convenient recipes tailored to the ingredients you have on hand, 
+                dietary preferences, and cooking time. We believe cooking should be intuitive and enjoyable for everyone.
+            </p>
+
+            <h2>How It Works</h2>
+            <p>
+                Using advanced algorithms and an extensive recipe database, our application suggests recipes that fit your needs 
+                and maximize ingredient usage, reducing waste and inspiring creativity in your kitchen.
+            </p>
+
+            <h2>Contact Us</h2>
+            <p>
+                If you have questions, feedback, or want to contribute recipes, please visit our <a href="contact.html" style="color: var(--accent-color); text-decoration: underline;">Contact page</a>.
+            </p>
+        </main>
+    </div>
+</body>
+</html> 

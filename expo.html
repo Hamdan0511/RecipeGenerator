@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Recipe Generator - Squarespace Inspired</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --background-color: #fafafa;
+      --surface-color: #ffffff;
+      --text-primary: #1a1a1a;
+      --text-secondary: #555;
+      --accent-color: #222;
+      --accent-hover: #666;
+      --border-color: #e0e0e0;
+      --shadow-color: rgba(0, 0, 0, 0.1);
+      --font-family: 'Poppins', sans-serif;
+      --border-radius: 12px;
+      --transition-speed: 0.3s;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--font-family);
+      background: var(--background-color);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1140px;
+      margin: auto;
+      padding: 40px 24px;
+    }
+    nav.nav-menu {
+      background: var(--surface-color);
+      padding: 18px 0;
+      margin-bottom: 48px;
+      box-shadow: 0 2px 10px var(--shadow-color);
+      border-radius: var(--border-radius);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    nav.nav-menu a {
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--text-primary);
+      padding: 10px 16px;
+      border-radius: 8px;
+      transition: background-color var(--transition-speed), color var(--transition-speed);
+    }
+    nav.nav-menu a.active,
+    nav.nav-menu a:hover {
+      background-color: var(--accent-color);
+      color: var(--surface-color);
+    }
+    section.page-section { display: none; }
+    section.page-section.active { display: block; }
+    header h1 { font-size: 2.4rem; }
+    form label { display: block; margin-top: 16px; font-weight: 600; }
+    input, select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      margin-top: 8px;
+      font-size: 1rem;
+    }
+    button {
+      background: var(--accent-color);
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav-menu">
+      <a href="#" class="nav-link active" data-target="home">Home</a>
+      <a href="#" class="nav-link" data-target="about">About</a>
+      <a href="#" class="nav-link" data-target="contact">Contact</a>
+      <a href="#" class="nav-link" data-target="login">Login</a>
+      <a href="#" class="nav-link" data-target="top-recipes">Top Recipes</a>
+      <a href="#" class="nav-link" data-target="profile">Profile</a>
+      <a href="#" class="nav-link" data-target="cuisines">World Cuisines</a>
+    </nav>
+
+    <section id="home" class="page-section active">
+      <header>
+        <h1>Dynamic Recipe Generator</h1>
+        <p>Discover delicious recipes based on your ingredients and preferences</p>
+      </header>
+      <form>
+        <label for="ingredients">Ingredients</label>
+        <input type="text" id="ingredients" placeholder="e.g., chicken, rice, tomato">
+
+        <label for="cuisine">Cuisine</label>
+        <select id="cuisine">
+          <option value="any">Any</option>
+          <option value="italian">Italian</option>
+          <option value="mexican">Mexican</option>
+        </select>
+
+        <label for="cookingTime">Max Cooking Time (minutes)</label>
+        <input type="number" id="cookingTime" value="30">
+
+        <label for="servings">Servings</label>
+        <input type="number" id="servings" value="2">
+
+        <button type="submit">Generate Recipes</button>
+      </form>
+    </section>
+
+    <section id="about" class="page-section">
+      <h1>About</h1>
+      <p>This site helps users generate recipes based on ingredients and preferences. Built with taste and simplicity in mind.</p>
+    </section>
+
+    <section id="contact" class="page-section">
+      <h1>Contact</h1>
+      <p>Email: support@recipegenerator.com<br>Phone: +91 98765 43210</p>
+    </section>
+
+    <section id="login" class="page-section">
+      <h1>Login</h1>
+      <form>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username">
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password">
+
+        <button type="submit">Login</button>
+      </form>
+    </section>
+
+    <section id="top-recipes" class="page-section">
+      <h1>Top Recipes</h1>
+      <ul>
+        <li>Spaghetti Carbonara</li>
+        <li>Grilled Paneer Salad</li>
+        <li>Mediterranean Chickpea Bowl</li>
+      </ul>
+    </section>
+
+    <section id="profile" class="page-section">
+      <h1>Your Profile</h1>
+      <p>Name: Jane Doe</p>
+      <p>Email: jane@example.com</p>
+      <p>Preferences: Vegan, Gluten-Free</p>
+    </section>
+
+    <section id="cuisines" class="page-section">
+      <h1>World Cuisines</h1>
+      <ul>
+        <li>Indian</li>
+        <li>Mexican</li>
+        <li>Italian</li>
+        <li>Thai</li>
+        <li>Chinese</li>
+      </ul>
+    </section>
+  </div>
+
+  <script>
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = link.getAttribute('data-target');
+
+        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+        document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+
+        link.classList.add('active');
+        document.getElementById(target).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

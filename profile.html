@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Profile - Recipe Generator</title>
+    <style>
+        :root {
+            --background-color: #fafafa;
+            --surface-color: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555555;
+            --accent-color: #222222;
+            --accent-hover: #666666;
+            --border-color: #e0e0e0;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --font-family: 'Poppins', Arial, sans-serif;
+            --border-radius: 12px;
+            --transition-speed: 0.3s;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--font-family);
+            background-color: var(--background-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1140px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 40px 24px;
+        }
+
+        /* Navigation styles */
+        nav.nav-menu {
+            background: var(--surface-color);
+            padding: 18px 0;
+            margin-bottom: 48px;
+            box-shadow: 0 2px 10px var(--shadow-color);
+            border-radius: var(--border-radius);
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        nav.nav-menu a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+        }
+
+        nav.nav-menu a.active,
+        nav.nav-menu a:hover,
+        nav.nav-menu a:focus {
+            background-color: var(--accent-color);
+            color: var(--surface-color);
+            outline: none;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 48px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        header h1 {
+            font-weight: 700;
+            font-size: 2.8rem;
+            color: var(--accent-color);
+            letter-spacing: 0.05em;
+        }
+
+        header p {
+            font-weight: 400;
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+        }
+
+        /* Profile styles */
+        .profile-section {
+            background: var(--surface-color);
+            border-radius: var(--border-radius);
+            padding: 32px;
+            box-shadow: 0 4px 12px var(--shadow-color);
+            margin-bottom: 32px;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-color);
+        }
+
+        .profile-info h2 {
+            margin: 0 0 8px 0;
+            color: var(--accent-color);
+            font-size: 1.8rem;
+        }
+
+        .profile-info p {
+            margin: 0;
+            color: var(--text-secondary);
+        }
+
+        .profile-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .stat-card {
+            background: var(--background-color);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            margin: 0 0 8px 0;
+            color: var(--accent-color);
+            font-size: 1.4rem;
+        }
+
+        .stat-card p {
+            margin: 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .saved-recipes {
+            margin-top: 32px;
+        }
+
+        .saved-recipes h3 {
+            color: var(--accent-color);
+            margin-bottom: 16px;
+        }
+
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .recipe-card {
+            background: var(--background-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: transform var(--transition-speed);
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .recipe-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .recipe-content {
+            padding: 16px;
+        }
+
+        .recipe-title {
+            margin: 0 0 8px 0;
+            color: var(--accent-color);
+            font-size: 1.1rem;
+        }
+
+        .recipe-meta {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .recipe-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            header p {
+                font-size: 1rem;
+            }
+            nav.nav-menu {
+                gap: 16px;
+                padding: 12px 0;
+            }
+            nav.nav-menu a {
+                font-size: 0.9rem;
+                padding: 6px 12px;
+            }
+            .profile-section {
+                padding: 20px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <nav class="nav-menu" aria-label="Primary navigation">
+            <a href="expo.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html">Login</a>
+            <a href="top-recipes.html">Top Recipes</a>
+            <a href="#" class="active" aria-current="page">Profile</a>
+            <a href="cuisines.html">World Cuisines</a>
+        </nav>
+
+        <header>
+            <h1>My Profile</h1>
+            <p>Manage your account and view your saved recipes</p>
+        </header>
+
+        <main>
+            <section class="profile-section">
+                <div class="profile-header">
+                    <img src="https://via.placeholder.com/120" alt="Profile Picture" class="profile-avatar" />
+                    <div class="profile-info">
+                        <h2>John Doe</h2>
+                        <p>Member since January 2024</p>
+                    </div>
+                </div>
+
+                <div class="profile-stats">
+                    <div class="stat-card">
+                        <h3>24</h3>
+                        <p>Saved Recipes</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>12</h3>
+                        <p>Created Recipes</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>8</h3>
+                        <p>Reviews</p>
+                    </div>
+                </div>
+
+                <div class="saved-recipes">
+                    <h3>Recently Saved Recipes</h3>
+                    <div class="recipe-grid">
+                        <div class="recipe-card">
+                            <img src="https://via.placeholder.com/400x200" alt="Pasta Carbonara" class="recipe-image" />
+                            <div class="recipe-content">
+                                <h4 class="recipe-title">Pasta Carbonara</h4>
+                                <p class="recipe-meta">Italian • 30 mins</p>
+                            </div>
+                        </div>
+                        <div class="recipe-card">
+                            <img src="https://via.placeholder.com/400x200" alt="Chicken Curry" class="recipe-image" />
+                            <div class="recipe-content">
+                                <h4 class="recipe-title">Chicken Curry</h4>
+                                <p class="recipe-meta">Indian • 45 mins</p>
+                            </div>
+                        </div>
+                        <div class="recipe-card">
+                            <img src="https://via.placeholder.com/400x200" alt="Vegetable Stir Fry" class="recipe-image" />
+                            <div class="recipe-content">
+                                <h4 class="recipe-title">Vegetable Stir Fry</h4>
+                                <p class="recipe-meta">Asian • 20 mins</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html> 

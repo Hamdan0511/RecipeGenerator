@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Top Recipes - Recipe Generator</title>
+  <style>
+    :root {
+        --background-color: #fafafa;
+        --surface-color: #ffffff;
+        --text-primary: #1a1a1a;
+        --text-secondary: #555555;
+        --accent-color: #222222;
+        --accent-hover: #666666;
+        --border-color: #e0e0e0;
+        --shadow-color: rgba(0, 0, 0, 0.1);
+        --font-family: 'Poppins', Arial, sans-serif;
+        --border-radius: 12px;
+        --transition-speed: 0.3s;
+    }
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+    body {
+        margin: 0;
+        font-family: var(--font-family);
+        background-color: var(--background-color);
+        color: var(--text-primary);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    .container {
+        max-width: 1140px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 40px 24px;
+    }
+    nav.nav-menu {
+        background: var(--surface-color);
+        padding: 18px 0;
+        margin-bottom: 48px;
+        box-shadow: 0 2px 10px var(--shadow-color);
+        border-radius: var(--border-radius);
+        display: flex;
+        justify-content: center;
+        gap: 32px;
+        flex-wrap: wrap;
+    }
+    nav.nav-menu a {
+        color: var(--text-primary);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        padding: 8px 16px;
+        border-radius: 8px;
+        transition: background-color var(--transition-speed), color var(--transition-speed);
+    }
+    nav.nav-menu a.active,
+    nav.nav-menu a:hover,
+    nav.nav-menu a:focus {
+        background-color: var(--accent-color);
+        color: var(--surface-color);
+        outline: none;
+    }
+    header {
+        text-align: center;
+        margin-bottom: 48px;
+        padding-bottom: 24px;
+        border-bottom: 1px solid var(--border-color);
+    }
+    header h1 {
+        font-weight: 700;
+        font-size: 2.8rem;
+        color: var(--accent-color);
+        letter-spacing: 0.05em;
+    }
+    header p {
+        font-weight: 400;
+        font-size: 1.15rem;
+        color: var(--text-secondary);
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.5;
+    }
+    .recipe-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 32px;
+        margin-top: 40px;
+    }
+    .recipe-card {
+        background: var(--surface-color);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: 0 4px 12px var(--shadow-color);
+        transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    }
+    .recipe-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px var(--shadow-color);
+    }
+    .recipe-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-bottom: 1px solid var(--border-color);
+    }
+    .recipe-content {
+        padding: 24px;
+    }
+    .recipe-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--accent-color);
+        margin: 0 0 12px 0;
+    }
+    .recipe-content p {
+        color: var(--text-secondary);
+        margin: 0;
+        font-size: 1rem;
+    }
+    .recipe-rating {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 12px;
+    }
+    .recipe-rating span {
+        color: #ffc107;
+        font-size: 1.2rem;
+    }
+    @media (max-width: 1024px) {
+        .container {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        .recipe-list {
+            gap: 24px;
+        }
+    }
+    @media (max-width: 480px) {
+        header h1 {
+            font-size: 2.2rem;
+        }
+        header p {
+            font-size: 1rem;
+        }
+        nav.nav-menu {
+            gap: 16px;
+            padding: 12px 0;
+        }
+        nav.nav-menu a {
+            font-size: 0.9rem;
+            padding: 6px 12px;
+        }
+        .recipe-list {
+            grid-template-columns: 1fr;
+        }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <nav class="nav-menu" aria-label="Primary navigation">
+      <a href="expo.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html">Login</a>
+      <a href="#" class="active" aria-current="page">Top Recipes</a>
+      <a href="profile.html">Profile</a>
+      <a href="cuisines.html">World Cuisines</a>
+    </nav>
+    <header>
+      <h1>Top Rated Recipes</h1>
+      <p>Discover our most popular and highly-rated recipes from around the world</p>
+    </header>
+    <section class="recipe-list">
+      <div class="recipe-card">
+        <img src="https://via.placeholder.com/400x200" alt="Spaghetti Carbonara" class="recipe-image" />
+        <div class="recipe-content">
+          <h3 class="recipe-title">Spaghetti Carbonara</h3>
+          <p>Classic Italian pasta dish with eggs, cheese, pancetta, and black pepper</p>
+          <div class="recipe-rating">
+            <span>★★★★★</span>
+            <span>4.9</span>
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card">
+        <img src="https://via.placeholder.com/400x200" alt="Grilled Chicken Tikka" class="recipe-image" />
+        <div class="recipe-content">
+          <h3 class="recipe-title">Grilled Chicken Tikka</h3>
+          <p>Indian-style marinated chicken grilled to perfection</p>
+          <div class="recipe-rating">
+            <span>★★★★★</span>
+            <span>4.8</span>
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card">
+        <img src="https://via.placeholder.com/400x200" alt="Vegetable Pad Thai" class="recipe-image" />
+        <div class="recipe-content">
+          <h3 class="recipe-title">Vegetable Pad Thai</h3>
+          <p>Thai stir-fried rice noodles with vegetables and peanuts</p>
+          <div class="recipe-rating">
+            <span>★★★★☆</span>
+            <span>4.7</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html> 
